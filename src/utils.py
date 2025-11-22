@@ -34,11 +34,7 @@ def spark_confusion_matrix(model, spark_df):
 
 def init_spark_session(app_name="DefaultPySparkApp", master="yarn", log_level="WARN"):
     """Initializes and configures the SparkSession."""
-    spark = (
-        SparkSession.builder.appName(app_name)
-        .master(master)
-        .getOrCreate()
-    )
+    spark = SparkSession.builder.appName(app_name).master(master).getOrCreate()
 
     spark.sparkContext.setLogLevel(log_level)
     return spark
