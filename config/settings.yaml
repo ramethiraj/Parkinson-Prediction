@@ -1,0 +1,29 @@
+spark:
+  app_name: "ParkinsonsPrediction"
+  master: "yarn"
+  log_level: "WARN"
+
+data:
+  # IMPORTANT: Change this path to your actual HDFS/S3/MapR-FS location
+  data_path: "hdfs:///data/parkinsons/parkinsons.data"
+  target_column: "status"
+  feature_columns:
+    - "MDVP:Fo(Hz)"
+    - "MDVP:Fhi(Hz)"
+    - "MDVP:Flo(Hz)"
+    - "Jitter(%)"
+    - "RAP"
+    - "APQ"
+    # ... Add all other 20+ feature columns from the dataset
+
+pipeline:
+  split_ratio: 0.8  # 80% train, 20% test
+  models_to_run: ["lr", "rf", "gbt"]
+  
+model_params:
+  rf:
+    maxDepth: 10
+    numTrees: 100
+  gbt:
+    maxIter: 20
+    maxDepth: 5
