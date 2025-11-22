@@ -1,6 +1,6 @@
 # PySpark Parkinson's Prediction Pipeline
 
-## 1. Project Overview 🗣️
+## 1. Project Overview 
 
 This repository contains the production code for classifying individuals with Parkinson's disease based on voice recordings, using the **Parkinson's Voice Dataset**. The solution is built on **Apache Spark (PySpark)**, leveraging Spark ML for scalable machine learning.
 
