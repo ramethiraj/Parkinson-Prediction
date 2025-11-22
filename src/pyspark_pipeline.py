@@ -53,9 +53,7 @@ def run_parkinsons_pipeline():
 
     # 3. Feature Engineering and Preparation
     # a. Vector Assembler: Combine feature columns into a single vector
-    assembler = VectorAssembler(
-        inputCols=feature_cols, outputCol="features_unscaled"
-    )
+    assembler = VectorAssembler(inputCols=feature_cols, outputCol="features_unscaled")
     df_assembled = assembler.transform(df)
 
     # b. Scaler: Standardize features
